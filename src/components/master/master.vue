@@ -108,7 +108,7 @@ export default {
             {
                 title: 'Debitar',
                 icon: 'remove_circle',
-                path: '/saldo'
+                path: '/masterUsuario/debitar'
             },
             {
                 title: 'Asociar cuenta',

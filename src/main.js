@@ -24,6 +24,7 @@ import registro from './components/registro/registro.vue'
 import masterUsuario from './components/master/master.vue' 
 import saldo from './components/saldo/saldo.vue'
 import acreditar from './components/acreditar/acreditar.vue'
+import debitar from './components/debitar/acreditar.vue'
 /*
 ------------------------------------
   Las rutas
@@ -73,6 +74,13 @@ const routes = [{
           name: 'acreditar',
           path: 'acreditar',
           component: acreditar,
+          props: {
+            ip: getIp()
+          },
+        },{
+          name: 'debitar',
+          path: 'debitar',
+          component: debitar,
           props: {
             ip: getIp()
           },

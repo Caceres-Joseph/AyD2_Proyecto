@@ -21,6 +21,7 @@
      created() {
          this.inicializar();
          this.item.idUsuario = this.$session.get('idUsuario');
+
      },
      /*
      |--------------------------------------------------------------------------
@@ -43,9 +44,9 @@
 
          clckAceptar() {
 
-             this.item.monto = parseFloat(this.item.monto); 
 
-             let uri3 = this.ip + "acreditar";
+             this.item.monto = parseFloat(this.item.monto);
+             let uri3 = this.ip + "debitar";
              this.axios.post(uri3, this.item).then(response => {
                      if (response.data.respuesta) {
                          this.item = {};

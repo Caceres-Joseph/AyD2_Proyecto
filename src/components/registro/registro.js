@@ -1,4 +1,3 @@
-import getDefaultData from "./datos.js";
 export default {
     /*
     |--------------------------------------------------------------------------
