@@ -8,7 +8,7 @@
         :mini-variant.sync="mini"
         mini>
 
-        <v-toolbar 
+        <v-toolbar
             flat
             class="transparent">
             <v-list class="pa-0">
@@ -18,9 +18,8 @@
                     </v-list-tile-avatar>
 
                         <v-list-tile-content>
-                            <v-list-tile-title>Jhosef Cáceres</v-list-tile-title>
+                            <v-list-tile-title>{{this.$session.get('nombre')}}</v-list-tile-title>
                         </v-list-tile-content>
-
                         <v-list-tile-action>
                             <v-btn
                                 icon
@@ -38,13 +37,14 @@
 
             <v-list-tile
                 v-for="item in items"
+                :to="item.path"
                 :key="item.title">
                 <v-list-tile-action>
-                    <v-icon>{{ item.icon }}</v-icon>
+                    <v-icon medium>{{ item.icon }}</v-icon>
                 </v-list-tile-action>
 
                 <v-list-tile-content>
-                    <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                    <v-list-tile-title class="subheading">{{ item.title }}</v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
         </v-list>
@@ -59,21 +59,14 @@
             style="width: 300px"
             class="ml-0 pl-3">
             <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-            <span class="hidden-sm-and-down">New Games</span>
+            <span class="hidden-sm-and-down headline">Banco de Guatemala</span>
         </v-toolbar-title>
-        <v-text-field
-            flat
-            solo-inverted
-            hide-details
-            prepend-inner-icon="search"
-            label="Buscar"
-            class="hidden-sm-and-down"></v-text-field>
         <v-spacer></v-spacer>
         <v-btn icon>
             <v-icon>apps</v-icon>
         </v-btn>
         <v-btn icon>
-            <v-icon>notifications</v-icon>
+            <v-icon>exit_to_app</v-icon>
         </v-btn>
         <v-btn
             icon
@@ -89,31 +82,47 @@
         </v-btn>
     </v-toolbar>
     <v-content>
-        <br>
-        <cuerpo />
+        <router-view></router-view>
     </v-content>
     <v-footer class="pa-3 justify-center">
-        <div>&copy; Seminario1 Primer Semestre {{ new Date().getFullYear() }} <strong>Jhosef Cáceres - 201513595</strong></div>
+        <div>&copy; AyD2 Primer Semestre {{ new Date().getFullYear() }} <strong>Grupo N</strong></div>
     </v-footer>
 
 </v-app>
 </template>
 
 <script>
-import cuerpo from './cuerpo/cuerpo.vue'
 export default {
-    components: {
-        cuerpo
-    },
     data: () => ({
         drawer: true,
         items: [{
-                title: 'Inicio',
-                icon: 'dashboard'
+                title: 'Saldo',
+                icon: 'monetization_on',
+                path: '/masterUsuario/saldo'
             },
             {
-                title: 'Acerca de',
-                icon: 'question_answer'
+                title: 'Acreditar',
+                icon: 'add_circle',
+                path: '/masterUsuario/acreditar'
+            },
+            {
+                title: 'Debitar',
+                icon: 'remove_circle',
+                path: '/saldo'
+            },
+            {
+                title: 'Asociar cuenta',
+                icon: 'how_to_reg',
+                path: '/saldo'
+            },
+            {
+                title: 'Transferencia',
+                icon: 'compare_arrows',
+                path: '/saldo'
+            },
+            {
+                title: 'Eliminar cuenta',
+                icon: 'delete'
             }
         ],
         mini: true,
@@ -121,6 +130,12 @@ export default {
     }),
     props: {
         source: String
+    },
+    created() {
+
+        this.$router.push({
+            name: "saldo"
+        });
     }
 }
 </script>

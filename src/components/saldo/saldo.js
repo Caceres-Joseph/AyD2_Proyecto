@@ -1,5 +1,4 @@
-import getDefaultData from "./datos.js";
-export default {
+ export default {
     /*
     |--------------------------------------------------------------------------
     | Data
@@ -13,12 +12,11 @@ export default {
         snackStatus: false,
         sanckText: " ",
 
-        /* Items */
+
+
         item: {
-            correo: "",
-            password: ""
-        },
-        drawer: null
+            saldo:0.0
+        }
     }),
 
     created() {
@@ -32,40 +30,17 @@ export default {
     */
     methods: {
         inicializar() {
+ 
 
-            window.scrollTo(0, 0);
-        },
-
-        validar() {
-
-
-            let uri3 = this.ip + "login";
-
+            let uri3 = this.ip + "saldo";
             this.axios.post(uri3, this.item).then(response => {
-                if (response.data.respuesta == 1) {
-                    this.$session.start()
-                    this.$session.set('idUsuario', response.data.idUsuario);
-                    this.$session.set('nombre', this.item.correo);
-              
-                    
-
-                    this.$router.push({
-                        name: "masterUsuario"
-                    });
-
-                    //si exist el usuario
-                } else {
-                    this.item = {};
-                    this.mensajeError("Usuario y/o contraseña incorrecta");
-                    //Error en contraseña y usuario
-                }
+                this.item = response.data;
             });
+
         },
-        clckRegistro() {
-            this.$router.push({
-                name: "registro"
-            });
-        },
+
+        
+        
         /*
         +------------------------------------------------+
         |   Mensajes
@@ -86,6 +61,7 @@ export default {
             this.sanckText = "[Advertencia] " + mensaje;
             this.snackStatus = true;
         }
+
 
     }
 };

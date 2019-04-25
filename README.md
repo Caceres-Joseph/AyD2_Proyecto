@@ -20,7 +20,7 @@ npm run build
 ```
  /registro
 ```
-### Envio
+### Envío
 ```json
 {
   "apellido": "Apellido",
@@ -47,7 +47,7 @@ Registro fallido
 ```
  /login
 ```
-### Envio
+### Envío
 ```json
 {
   "correo": "Apellido", 
@@ -63,6 +63,75 @@ Registro exitoso
 }
 ```
 Registro fallido
+```json
+{
+  "respuesta": 0
+}
+```
+
+-----------------------
+## Saldo - Post
+```
+ /saldo
+```
+### Envío
+```json
+{
+  "idUsuario": 32,  
+}
+```
+### Respuesta 
+```json
+{
+  "saldo": 32.23, 
+}
+``` 
+-----------------------
+## Acreditar - Post
+```
+ /acreditar
+```
+### Envío
+```json
+{
+  "monto": 23.43,  
+  "idUsuario":32
+}
+```
+### Respuesta
+Acreditación exitosa
+```json
+{
+  "respuesta": 1, 
+}
+```
+Acreditación fallida
+```json
+{
+  "respuesta": 0
+}
+```
+
+-----------------------
+## Debitar - Post
+```
+ /debitar
+```
+### Envío
+```json
+{
+  "monto": 23.43,  
+  "idUsuario":32
+}
+```
+### Respuesta
+Debito exitoso
+```json
+{
+  "respuesta": 1, 
+}
+```
+Debito fallido
 ```json
 {
   "respuesta": 0

@@ -20,7 +20,10 @@ import master from './App.vue'
 
 import login from './components/login/cuerpo.vue'
 import registro from './components/registro/registro.vue'
-
+ 
+import masterUsuario from './components/master/master.vue' 
+import saldo from './components/saldo/saldo.vue'
+import acreditar from './components/acreditar/acreditar.vue'
 /*
 ------------------------------------
   Las rutas
@@ -34,21 +37,50 @@ const routes = [{
   props: {
     ip: getIp()
   },
-  children: [{
-    name: 'login',
-    path: 'login',
-    component: login,
-    props: {
-      ip: getIp()
-    },
-  }, {
-    name: 'registro',
-    path: 'registro',
-    component: registro,
-    props: {
-      ip: getIp()
-    },
-  }]
+  children: [
+
+
+    {
+      name: 'login',
+      path: 'login',
+      component: login,
+      props: {
+        ip: getIp()
+      },
+    }, {
+      name: 'registro',
+      path: 'registro',
+      component: registro,
+      props: {
+        ip: getIp()
+      },
+    }, {
+      name: 'masterUsuario',
+      path: 'masterUsuario',
+      component: masterUsuario,
+      props: {
+        ip: getIp()
+      },
+      children: [
+        {
+          name: 'saldo',
+          path: 'saldo',
+          component: saldo,
+          props: {
+            ip: getIp()
+          },
+        },{
+          name: 'acreditar',
+          path: 'acreditar',
+          component: acreditar,
+          props: {
+            ip: getIp()
+          },
+        }
+      ]
+    }
+
+  ]
 }];
 /*
 ------------------------------------
