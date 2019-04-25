@@ -4,7 +4,9 @@ import VueRouter from 'vue-router'
 
 import './plugins/vuetify'
 import './plugins/axios'
-import  getIp  from './components/modules/direccion.js';  
+import './plugins/session'
+
+import getIp from './components/modules/direccion.js';
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -29,17 +31,23 @@ const routes = [{
   name: 'master',
   path: '/',
   component: master,
-  props: { ip: getIp() },
+  props: {
+    ip: getIp()
+  },
   children: [{
     name: 'login',
     path: 'login',
     component: login,
-    props: { ip: getIp() },
+    props: {
+      ip: getIp()
+    },
   }, {
     name: 'registro',
     path: 'registro',
     component: registro,
-    props: { ip: getIp() },
+    props: {
+      ip: getIp()
+    },
   }]
 }];
 /*

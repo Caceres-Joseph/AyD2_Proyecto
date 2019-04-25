@@ -6,20 +6,23 @@ export default {
     |--------------------------------------------------------------------------
     */
 
-   props: ['ip'],
-   data: () => ({
-       /* SnackBar */
-       snackColor: "teal darken-4",
-       snackStatus: false,
-       sanckText: " ",
+    props: ['ip'],
+    data: () => ({
+        /* SnackBar */
+        snackColor: "teal darken-4",
+        snackStatus: false,
+        sanckText: " ",
 
-       /* Items */
-       item: {},
-       drawer: null
-   }),
+        /* Items */
+        item: {
+            correo: "",
+            password: ""
+        },
+        drawer: null
+    }),
 
     created() {
-        this.inicializar(); 
+        this.inicializar();
 
     },
     /*
@@ -36,12 +39,10 @@ export default {
         validar() {
 
 
-            this.mensajeError("Usuario y/o contraseña incorrecta");
-            return;
-            let uri3 = this.ip + "Usuario_validation";
+            let uri3 = this.ip + "login";
 
             this.axios.post(uri3, this.item).then(response => {
-                if (response.data == 1) {
+                if (response.data.respuesta == 1) {
                     var href = this.ip + "bienvenido"; //find url
                     window.location = href;
                     //si exist el usuario
@@ -53,7 +54,9 @@ export default {
             });
         },
         clckRegistro() {
-            this.$router.push({ name: "registro" }); 
+            this.$router.push({
+                name: "registro"
+            });
         },
         /*
         +------------------------------------------------+

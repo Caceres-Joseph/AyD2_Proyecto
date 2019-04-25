@@ -15,7 +15,12 @@ export default {
 
 
 
-        item: {}
+        item: {
+            nombre: "",
+            apellido:"",
+            correo: "",
+            password: "",
+        }
     }),
 
     created() {

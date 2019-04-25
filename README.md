@@ -14,7 +14,7 @@ npm run serve
 ```
 npm run build
 ``` 
-# Formatos para respuestas
+# Api
 -----------------------
 ## Registro - Post
 ```
@@ -43,13 +43,14 @@ Registro fallido
 }
 ```
 -----------------------
-## Login
+## Login - Post
+```
+ /login
+```
 ### Envio
 ```json
 {
-  "apellido": "Apellido",
-  "correo": "Correo",
-  "nombre": "Nombre",
+  "correo": "Apellido", 
   "password": "Passowrd"
 }
 ```
@@ -57,7 +58,8 @@ Registro fallido
 Registro exitoso
 ```json
 {
-  "respuesta": 1
+  "respuesta": 1,
+  "idUsuario":32
 }
 ```
 Registro fallido

@@ -25,7 +25,7 @@
                                 <v-form>
                                     <v-text-field
                                         ref="txtTipoComprobante"
-                                        v-model="item.usuario"
+                                        v-model="item.correo"
                                         prepend-icon="person"
                                         name="login"
                                         label="Correo"
