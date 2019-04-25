@@ -1,4 +1,4 @@
-# practica1
+# Proyecto AyD2
 
 ## Project setup
 ```
