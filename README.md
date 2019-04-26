@@ -137,3 +137,149 @@ Debito fallido
   "respuesta": 0
 }
 ```
+-----------------------
+## Cuentas - Post
+Nota: No devolver las cuentas ya asociadas ni la propia
+```
+ /cuentas_no_asociadas
+``` 
+### Envío
+```json
+{
+  "idUsuario":32
+}
+```
+### Respuesta
+
+```json
+{
+  "cuentas": [
+    {
+      "correo":"Pedro",
+      "idUsuario":12
+    },
+    {
+      "correo":"Pepe",
+      "idUsuario":1
+    },
+    {
+      "correo":"Juan",
+      "idUsuario":43
+    }
+  ]
+}
+```
+-----------------------
+## Asociar Cuenta - Post
+```
+ /asociar_cuenta
+``` 
+### Envío
+```json
+{
+  "idUsuario":32,
+  "idSocio":34
+}
+```
+
+### Respuesta
+Se asoció exitosamente
+```json
+{
+  "respuesta": 1, 
+}
+```
+No se asoció
+```json
+{
+  "respuesta": 0
+}
+```
+
+-----------------------
+## Cuentas Asociadas - Post
+```
+ /cuentas_asociadas
+``` 
+### Envío
+```json
+{
+  "idUsuario":32
+}
+```
+
+### Respuesta
+```json
+{
+  "cuentas": [
+    {
+      "correo":"Pedro",
+      "idUsuario":12
+    },
+    {
+      "correo":"Pepe",
+      "idUsuario":1
+    },
+    {
+      "correo":"Juan",
+      "idUsuario":43
+    }
+  ]
+}
+```
+
+
+-----------------------
+## Transferir monto - Post
+```
+ /transferir
+``` 
+### Envío
+```json
+{
+  "idUsuario":32,
+  "monto":34.32,
+  "idSocio":34
+}
+```
+
+### Respuesta
+Operación exitosa
+```json
+{
+  "respuesta": 1, 
+}
+```
+Falló la operación
+```json
+{
+  "respuesta": 0
+}
+```
+
+
+-----------------------
+## Eliminar Cuenta - Post
+```
+ /eliminar_cuenta
+``` 
+### Envío
+```json
+{
+  "idUsuario":32
+}
+```
+
+### Respuesta
+Operación exitosa
+```json
+{
+  "respuesta": 1, 
+}
+```
+Falló la operación
+```json
+{
+  "respuesta": 0
+}
+```

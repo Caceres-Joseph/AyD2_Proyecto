@@ -25,6 +25,9 @@ import masterUsuario from './components/master/master.vue'
 import saldo from './components/saldo/saldo.vue'
 import acreditar from './components/acreditar/acreditar.vue'
 import debitar from './components/debitar/acreditar.vue'
+import asociar from './components/asociar/asociar.vue'
+import transferencia from './components/transferencia/transferencia.vue'
+import eliminar from './components/eliminar/eliminar.vue'
 /*
 ------------------------------------
   Las rutas
@@ -81,6 +84,27 @@ const routes = [{
           name: 'debitar',
           path: 'debitar',
           component: debitar,
+          props: {
+            ip: getIp()
+          },
+        },{
+          name: 'asociar',
+          path: 'asociar',
+          component: asociar,
+          props: {
+            ip: getIp()
+          },
+        },{
+          name: 'transferencia',
+          path: 'transferencia',
+          component: transferencia,
+          props: {
+            ip: getIp()
+          },
+        },{
+          name: 'eliminar',
+          path: 'eliminar',
+          component: eliminar,
           props: {
             ip: getIp()
           },

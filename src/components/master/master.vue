@@ -65,7 +65,9 @@
         <v-btn icon>
             <v-icon>apps</v-icon>
         </v-btn>
-        <v-btn icon>
+        <v-btn
+            @click="clckSalir"
+            icon>
             <v-icon>exit_to_app</v-icon>
         </v-btn>
         <v-btn
@@ -113,16 +115,17 @@ export default {
             {
                 title: 'Asociar cuenta',
                 icon: 'how_to_reg',
-                path: '/saldo'
+                path: '/masterUsuario/asociar'
             },
             {
                 title: 'Transferencia',
                 icon: 'compare_arrows',
-                path: '/saldo'
+                path: '/masterUsuario/transferencia'
             },
             {
                 title: 'Eliminar cuenta',
-                icon: 'delete'
+                icon: 'delete',
+                path: '/masterUsuario/eliminar'
             }
         ],
         mini: true,
@@ -136,6 +139,16 @@ export default {
         this.$router.push({
             name: "saldo"
         });
+    },
+    methods: {
+
+        clckSalir() {
+
+            this.$router.push({
+                name: "login"
+            });
+        }
+
     }
 }
 </script>
