@@ -23,7 +23,7 @@
                     :items="items"
                     v-model="itemsS"
                     item-text="correo"
-                    item-value="idUsuario"
+                    item-value="idCliente"
                     placeholder="Seleccione la cuenta para transferir"
                     @change="cbCambio">
                 </v-autocomplete>

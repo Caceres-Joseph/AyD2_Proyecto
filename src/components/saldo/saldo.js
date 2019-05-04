@@ -32,8 +32,10 @@
         inicializar() {
  
 
+            this.item.idUsuario = this.$session.get('idUsuario');
             let uri3 = this.ip + "saldo";
             this.axios.post(uri3, this.item).then(response => {
+                console.log(response.data);
                 this.item = response.data;
             });
 

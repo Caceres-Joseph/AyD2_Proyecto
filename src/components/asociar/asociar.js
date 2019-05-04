@@ -51,6 +51,7 @@ export default {
             console.log(e);
             if (e == null)
                 return;
+            console.log(e)
 
             if (e == parseInt(e, 10)) { //es numero
                 this.item.idSocio = e;
